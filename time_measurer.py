@@ -3,16 +3,13 @@
 # запускает переданную программу со всеми переданными ключами, меряет время выполнения и шлет в графит
 # !!!important  | - не обрабатывается
 # 12/10/2014 Anatoly Burtsev onotole@yandex-team.ru
-
 #TODO read GRAPHITE_HOST and PORT from config
 
-from __future__ import print_function
 import os
 import sys
 import time
 import subprocess as sb
 import socket
-import re
 
 GRAPHITE_HOST = "localhost"
 GRAPHITE_PORT = 2003
@@ -34,11 +31,8 @@ T0 = time.time()
 out, err = P.communicate()
 dT = time.time() - T0
 
-out=out.encode()
-err=err.encode()
-#remove magic additional newline
-if out != "": print(out[:-1])
-if err != "": print(err[:-1], file=sys.stderr)
+sys.stdout.write(out)
+sys.stderr.write(err)
 
 #send to graphite
 MESSAGE = 'stats.timemeasurer.%s.%s %d %d\n' % (HOST, SCRIPT, int(dT), int(time.time()))
