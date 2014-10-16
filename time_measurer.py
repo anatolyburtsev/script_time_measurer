@@ -11,7 +11,7 @@ import time
 import subprocess as sb
 import socket
 
-GRAPHITE_HOST=""
+GRAPHITE_HOST="localhost"
 GRAPHITE_PORT=2003
 
 if len(sys.argv) == 1: 
@@ -27,12 +27,10 @@ dT = time.time() - T0
 if err: print(err, file=sys.stderr)
 
 #send to graphite
-MESSAGE = "stats.test.test " + str(int(dT)) +" "+ str(int(time.time()))
+MESSAGE = 'stats.test test %d %d\n' % (int(dT), int(time.time()))
+
 #print(MESSAGE)
-sock = socket.socket( socket.AF_INET, # Internet
-                      socket.SOCK_STREAM ) # tcP
-sock.connect( (GRAPHITE_HOST, GRAPHITE_PORT))
-sock.send( MESSAGE )
-#for python3:
-#sock.send( bytes(MESSAGE,'UTF-8') )
+
+sock = socket.create_connection( (GRAPHITE_HOST, GRAPHITE_PORT))
+sock.sendall( MESSAGE )
 sock.close()
