@@ -1,0 +1,20 @@
+Source: yandex-search-time-measurer
+Section: misc
+Priority: optional
+Maintainer: Anatoly Burtsev <onotole@yandex-team.ru>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.9.3
+Homepage: http://www.yandex.ru
+
+Package: yandex-search-time-measurer
+Section: misc
+Priority: optional
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: script for measure time of working scripts in crontab and send to graphite
+ wrapper for measuring time of working scripts in crontab;
+ '|' - is not support
+ just replase:
+ 0 *  * * * root rm -rf /*
+ by 
+ 0 *  * * * root time_measurer.py rm -rf /*

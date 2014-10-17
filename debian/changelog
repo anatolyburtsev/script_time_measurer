@@ -1,0 +1,23 @@
+yandex-search-time-measurer (1.0-4) unstable; urgency=low
+
+  * fix for command without parametrs
+
+ -- Anatoly BUrtsev <onotole@yandex-team.ru>  Fri, 17 Oct 2014 20:26:44 +0400
+
+yandex-search-time-measurer (1.0-3) unstable; urgency=low
+
+  * improve output
+
+ -- Anatoly BUrtsev <onotole@yandex-team.ru>  Fri, 17 Oct 2014 16:52:43 +0400
+
+yandex-search-time-measurer (1.0-2) unstable; urgency=low
+
+  * fix name of script
+
+ -- Anatoly BUrtsev <onotole@yandex-team.ru>  Thu, 16 Oct 2014 23:45:00 +0400
+
+yandex-search-time-measurer (1.0-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Anatoly BUrtsev <onotole@yandex-team.ru>  Fri, 19 Sep 2014 14:06:14 +0400
