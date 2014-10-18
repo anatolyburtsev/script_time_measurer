@@ -31,7 +31,7 @@ SCRIPT = sys.argv[script_name_position]
 SCRIPT=SCRIPT.split('/')[-1]
 
 #special for differ "get_smth.py thing1" and "get_smth.py thing2"
-if len(sys.argv) > 2 and sys.argv[script_name_position+1][0] not in '0123456789-': 
+if len(sys.argv[script_name_position:]) > 2 and sys.argv[script_name_position+1][0] not in '0123456789-': 
     SCRIPT = SCRIPT + '_' + sys.argv[script_name_position+1]
 
 #delele extenstion
